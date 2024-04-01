@@ -382,6 +382,7 @@
             addButton.TabIndex = 14;
             addButton.Text = "Add";
             addButton.UseVisualStyleBackColor = false;
+            addButton.Click += addButton_Click;
             // 
             // clearButton
             // 
@@ -392,6 +393,7 @@
             clearButton.TabIndex = 15;
             clearButton.Text = "Clear";
             clearButton.UseVisualStyleBackColor = false;
+            clearButton.Click += clearButton_Click;
             // 
             // updateButton
             // 
@@ -402,6 +404,7 @@
             updateButton.TabIndex = 16;
             updateButton.Text = "Update";
             updateButton.UseVisualStyleBackColor = false;
+            updateButton.Click += updateButton_Click;
             // 
             // deleteButton
             // 
@@ -412,6 +415,7 @@
             deleteButton.TabIndex = 17;
             deleteButton.Text = "Delete";
             deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += deleteButton_Click;
             // 
             // applicationsListBox
             // 
@@ -425,6 +429,7 @@
             applicationsListBox.Size = new Size(288, 580);
             applicationsListBox.TabIndex = 16;
             applicationsListBox.TabStop = false;
+            applicationsListBox.SelectedIndexChanged += applicationsListBox_SelectedIndexChanged;
             // 
             // Simple_JAM_Form
             // 
