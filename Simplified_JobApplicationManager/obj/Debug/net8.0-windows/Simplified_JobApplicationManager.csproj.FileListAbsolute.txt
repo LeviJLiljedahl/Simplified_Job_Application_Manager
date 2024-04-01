@@ -14,3 +14,4 @@ C:\Users\levij\OneDrive - Chippewa Valley Technical College\Desktop\Projects\Sim
 C:\Users\levij\OneDrive - Chippewa Valley Technical College\Desktop\Projects\Simplified_JobApplicationManager\Simplified_JobApplicationManager\obj\Debug\net8.0-windows\Simplified_JobApplicationManager.pdb
 C:\Users\levij\OneDrive - Chippewa Valley Technical College\Desktop\Projects\Simplified_JobApplicationManager\Simplified_JobApplicationManager\obj\Debug\net8.0-windows\Simplified_JobApplicationManager.genruntimeconfig.cache
 C:\Users\levij\OneDrive - Chippewa Valley Technical College\Desktop\Projects\Simplified_JobApplicationManager\Simplified_JobApplicationManager\obj\Debug\net8.0-windows\ref\Simplified_JobApplicationManager.dll
+C:\Users\levij\OneDrive - Chippewa Valley Technical College\Desktop\Projects\Simplified_JobApplicationManager\Simplified_JobApplicationManager\obj\Debug\net8.0-windows\Simplified_JobApplicationManager.sourcelink.json
