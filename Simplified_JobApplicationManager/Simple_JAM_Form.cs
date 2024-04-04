@@ -20,14 +20,69 @@ namespace Simplified_JobApplicationManager
             else if ((cLocatedTextBox.Text ?? "") == (string.Empty ?? ""))
             {
                 Msg("Company Located TextBox can not be blank.");
-                cNameTextBox.Focus();
+                cLocatedTextBox.Focus();
                 return;
             }
-            // Add rest of if else statements here
-            //else if ()
-            // {
-
-            // } 
+            else if ((jTitleTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Job Title TextBox can not be blank.");
+                jTitleTextBox.Focus();
+                return;
+            }
+            else if ((jLocationTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Job Location TextBox can not be blank.");
+                jLocationTextBox.Focus();
+                return;
+            }
+            else if ((jPayRateTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Pay Rate TextBox can not be blank. If not listed, enter 'Not Listed'.");
+                jPayRateTextBox.Focus();
+                return;
+            }
+            else if ((aAppliedOnTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Date Applied On TextBox can not be blank.");
+                aAppliedOnTextBox.Focus();
+                return;
+            }
+            else if ((aLocationTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Applied Location TextBox can not be blank.");
+                aLocationTextBox.Focus();
+                return;
+            }
+            else if ((aStatusComboBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Application Status ComboBox can not be blank.");
+                aStatusComboBox.Focus();
+                return;
+            }
+            else if ((eSourceDocTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Source Document TextBox can not be blank.");
+                eSourceDocTextBox.Focus();
+                return;
+            }
+            else if ((eNotesTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Notes TextBox can not be blank. If you have no notes at this time enter 'None'.");
+                eNotesTextBox.Focus();
+                return;
+            }
+            else if ((eInterestComboBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Interest Level ComboBox can not be blank.");
+                eInterestComboBox.Focus();
+                return;
+            }
+            else if ((eGoodFitComboBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Good Fit/Chances ComboBox can not be blank.");
+                eGoodFitComboBox.Focus();
+                return;
+            }
             else
             {
                 // GOOD CODE GOES HERE
