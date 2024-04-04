@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic;
+
 namespace Simplified_JobApplicationManager
 {
     public partial class Simple_JAM_Form : Form
@@ -9,7 +11,28 @@ namespace Simplified_JobApplicationManager
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            if ((cNameTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Company Name TextBox can not be blank.");
+                cNameTextBox.Focus();
+                return;
+            }
+            else if ((cLocatedTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Company Located TextBox can not be blank.");
+                cNameTextBox.Focus();
+                return;
+            }
+            // Add rest of if else statements here
+            //else if ()
+            // {
 
+            // } 
+            else
+            {
+                // GOOD CODE GOES HERE
+                Msg("Good Code");
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -55,6 +78,11 @@ namespace Simplified_JobApplicationManager
             this.eNotesTextBox.Text = string.Empty;
             this.eInterestComboBox.Text = string.Empty;
             this.eGoodFitComboBox.Text = string.Empty;
+        }
+
+        public void Msg(string msg)
+        {
+            MessageBox.Show(msg, "Job Application Manager", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
     }
 }
