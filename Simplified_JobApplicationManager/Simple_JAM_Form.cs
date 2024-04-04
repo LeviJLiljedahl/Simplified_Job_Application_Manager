@@ -11,6 +11,9 @@ namespace Simplified_JobApplicationManager
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            //Declare Variables
+            DateTime valueDAT;
+
             if ((cNameTextBox.Text ?? "") == (string.Empty ?? ""))
             {
                 Msg("Company Name TextBox can not be blank.");
@@ -41,9 +44,9 @@ namespace Simplified_JobApplicationManager
                 jPayRateTextBox.Focus();
                 return;
             }
-            else if ((aAppliedOnTextBox.Text ?? "") == (string.Empty ?? ""))
+            else if (DateTime.TryParse(aAppliedOnTextBox.Text, out valueDAT) == false)
             {
-                Msg("Date Applied On TextBox can not be blank.");
+                Msg("Date Applied On TextBox can not be blank and must be a valid date (dd/mm/yyyy).");
                 aAppliedOnTextBox.Focus();
                 return;
             }
