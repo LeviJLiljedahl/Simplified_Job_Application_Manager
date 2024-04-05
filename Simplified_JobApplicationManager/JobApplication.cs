@@ -23,7 +23,7 @@ namespace Simplified_JobApplicationManager
         private string cPayRate;
 
         private DateTime cDateApplied;
-        private DateTime cDaysSince;
+        //private DateTime cDaysSince;
         private string cAppliedLocation;
         private string cStatus;
 
@@ -53,8 +53,8 @@ namespace Simplified_JobApplicationManager
         public DateTime DateApplied 
             { get {  return cDateApplied; } set { cDateApplied = value; } }
 
-        public DateTime DaysSince 
-            { get {  return cDaysSince; } set {  cDaysSince = value; } }
+        //public DateTime DaysSince 
+         //   { get {  return cDaysSince; } set {  cDaysSince = value; } }
 
         public string AppliedLocation 
             { get { return cAppliedLocation; } set { cAppliedLocation = value; } }
@@ -84,7 +84,7 @@ namespace Simplified_JobApplicationManager
             cJobLocation = string.Empty;
             cPayRate = string.Empty;
             cDateApplied = new DateTime(1901, 01, 01);
-            cDaysSince = new DateTime(1901, 01, 01);
+            //cDaysSince = new DateTime(1901, 01, 01);
             cAppliedLocation = string.Empty;
             cStatus = string.Empty;
             cSourceDocument = string.Empty;
@@ -103,7 +103,7 @@ namespace Simplified_JobApplicationManager
             cJobLocation = string.Empty;
             cPayRate = string.Empty;
             cDateApplied = new DateTime(1901, 01, 01);
-            cDaysSince = new DateTime(1901, 01, 01);
+            //cDaysSince = new DateTime(1901, 01, 01);
             cAppliedLocation = string.Empty;
             cStatus = string.Empty;
             cSourceDocument = string.Empty;
@@ -113,7 +113,17 @@ namespace Simplified_JobApplicationManager
         }
 
         //Methods
-        // NEED TO ADD
+        public void Calculate_DaysSince(DateTime dateApplied, ref int days)
+        {
+            days = (int)System.DateTime.Now.Day - dateApplied.Day;
+        }
+
+
+        // Override to string for listbox
+        public override string ToString()
+        {
+            return cApplicationID + " - " + cJobTitle + " @ " + cCompanyName;
+        }
 
     }
 }
