@@ -37,6 +37,8 @@
             jTitleLabel = new Label();
             jLocationLabel = new Label();
             groupBox1 = new GroupBox();
+            cApplicationIDTextBox = new TextBox();
+            cApplicationIDLabel = new Label();
             cLocatedTextBox = new TextBox();
             cNameTextBox = new TextBox();
             groupBox2 = new GroupBox();
@@ -72,7 +74,7 @@
             // cNameLabel
             // 
             cNameLabel.AutoSize = true;
-            cNameLabel.Location = new Point(6, 32);
+            cNameLabel.Location = new Point(6, 59);
             cNameLabel.Name = "cNameLabel";
             cNameLabel.Size = new Size(127, 18);
             cNameLabel.TabIndex = 0;
@@ -81,7 +83,7 @@
             // cLocatedLabel
             // 
             cLocatedLabel.AutoSize = true;
-            cLocatedLabel.Location = new Point(8, 63);
+            cLocatedLabel.Location = new Point(8, 90);
             cLocatedLabel.Name = "cLocatedLabel";
             cLocatedLabel.Size = new Size(139, 18);
             cLocatedLabel.TabIndex = 1;
@@ -143,22 +145,42 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cApplicationIDTextBox);
+            groupBox1.Controls.Add(cApplicationIDLabel);
             groupBox1.Controls.Add(cLocatedTextBox);
             groupBox1.Controls.Add(cNameTextBox);
             groupBox1.Controls.Add(cNameLabel);
             groupBox1.Controls.Add(cLocatedLabel);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(444, 93);
+            groupBox1.Size = new Size(444, 127);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Company Information";
+            // 
+            // cApplicationIDTextBox
+            // 
+            cApplicationIDTextBox.BackColor = SystemColors.InactiveCaption;
+            cApplicationIDTextBox.Enabled = false;
+            cApplicationIDTextBox.Location = new Point(155, 25);
+            cApplicationIDTextBox.Name = "cApplicationIDTextBox";
+            cApplicationIDTextBox.Size = new Size(283, 25);
+            cApplicationIDTextBox.TabIndex = 4;
+            // 
+            // cApplicationIDLabel
+            // 
+            cApplicationIDLabel.AutoSize = true;
+            cApplicationIDLabel.Location = new Point(8, 28);
+            cApplicationIDLabel.Name = "cApplicationIDLabel";
+            cApplicationIDLabel.Size = new Size(141, 18);
+            cApplicationIDLabel.TabIndex = 3;
+            cApplicationIDLabel.Text = "Job Application ID:";
             // 
             // cLocatedTextBox
             // 
             cLocatedTextBox.BackColor = Color.MintCream;
             cLocatedTextBox.Font = new Font("Garamond", 12F);
-            cLocatedTextBox.Location = new Point(151, 60);
+            cLocatedTextBox.Location = new Point(151, 87);
             cLocatedTextBox.Name = "cLocatedTextBox";
             cLocatedTextBox.Size = new Size(287, 25);
             cLocatedTextBox.TabIndex = 2;
@@ -167,7 +189,7 @@
             // 
             cNameTextBox.BackColor = Color.MintCream;
             cNameTextBox.Font = new Font("Garamond", 12F);
-            cNameTextBox.Location = new Point(145, 29);
+            cNameTextBox.Location = new Point(145, 56);
             cNameTextBox.Name = "cNameTextBox";
             cNameTextBox.Size = new Size(293, 25);
             cNameTextBox.TabIndex = 1;
@@ -180,7 +202,7 @@
             groupBox2.Controls.Add(jPayRateLabel);
             groupBox2.Controls.Add(jTitleLabel);
             groupBox2.Controls.Add(jLocationLabel);
-            groupBox2.Location = new Point(12, 111);
+            groupBox2.Location = new Point(12, 145);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(444, 126);
             groupBox2.TabIndex = 2;
@@ -233,7 +255,7 @@
             groupBox3.Controls.Add(aDaysSinceLabel);
             groupBox3.Controls.Add(aLocationLabel);
             groupBox3.Controls.Add(aStatusLabel);
-            groupBox3.Location = new Point(12, 243);
+            groupBox3.Location = new Point(12, 277);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(444, 158);
             groupBox3.TabIndex = 3;
@@ -290,7 +312,7 @@
             groupBox4.Controls.Add(eInterestLabel);
             groupBox4.Controls.Add(eNotesLabel);
             groupBox4.Controls.Add(eSourceDocLabel);
-            groupBox4.Location = new Point(12, 407);
+            groupBox4.Location = new Point(12, 441);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(444, 156);
             groupBox4.TabIndex = 4;
@@ -376,7 +398,7 @@
             // addButton
             // 
             addButton.BackColor = Color.MediumAquamarine;
-            addButton.Location = new Point(12, 569);
+            addButton.Location = new Point(12, 603);
             addButton.Name = "addButton";
             addButton.Size = new Size(107, 39);
             addButton.TabIndex = 14;
@@ -387,7 +409,7 @@
             // clearButton
             // 
             clearButton.BackColor = Color.MediumAquamarine;
-            clearButton.Location = new Point(125, 569);
+            clearButton.Location = new Point(125, 603);
             clearButton.Name = "clearButton";
             clearButton.Size = new Size(107, 39);
             clearButton.TabIndex = 15;
@@ -398,7 +420,7 @@
             // updateButton
             // 
             updateButton.BackColor = Color.MediumAquamarine;
-            updateButton.Location = new Point(238, 569);
+            updateButton.Location = new Point(238, 603);
             updateButton.Name = "updateButton";
             updateButton.Size = new Size(107, 39);
             updateButton.TabIndex = 16;
@@ -409,7 +431,7 @@
             // deleteButton
             // 
             deleteButton.BackColor = Color.MediumAquamarine;
-            deleteButton.Location = new Point(351, 569);
+            deleteButton.Location = new Point(351, 603);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(107, 39);
             deleteButton.TabIndex = 17;
@@ -426,7 +448,7 @@
             applicationsListBox.ItemHeight = 18;
             applicationsListBox.Location = new Point(471, 22);
             applicationsListBox.Name = "applicationsListBox";
-            applicationsListBox.Size = new Size(288, 580);
+            applicationsListBox.Size = new Size(288, 616);
             applicationsListBox.TabIndex = 16;
             applicationsListBox.TabStop = false;
             applicationsListBox.SelectedIndexChanged += applicationsListBox_SelectedIndexChanged;
@@ -436,7 +458,7 @@
             AutoScaleDimensions = new SizeF(10F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Aquamarine;
-            ClientSize = new Size(771, 613);
+            ClientSize = new Size(771, 649);
             Controls.Add(applicationsListBox);
             Controls.Add(deleteButton);
             Controls.Add(updateButton);
@@ -498,5 +520,7 @@
         private ComboBox aStatusComboBox;
         private ComboBox eGoodFitComboBox;
         private ComboBox eInterestComboBox;
+        private TextBox cApplicationIDTextBox;
+        private Label cApplicationIDLabel;
     }
 }

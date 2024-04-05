@@ -2,6 +2,8 @@
 //Date: 04/04/2024
 //Purpose: Allow users to keep track of the jobs they apply for and have access to all the data about an application in one spot.
 
+using System.ComponentModel;
+
 namespace Simplified_JobApplicationManager
 {
     public partial class Simple_JAM_Form : Form
@@ -10,6 +12,14 @@ namespace Simplified_JobApplicationManager
         {
             InitializeComponent();
         }
+
+        //Class level object - binding list
+        private BindingList<Simplified_JobApplicationManager.JobApplication> jobApplications = new BindingList<Simplified_JobApplicationManager.JobApplication>();
+
+        //Class level Object Application
+        private Simplified_JobApplicationManager.JobApplication jobApplicationObject = new Simplified_JobApplicationManager.JobApplication();
+
+        int applicationLastNumber = 0;
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -91,7 +101,14 @@ namespace Simplified_JobApplicationManager
             else
             {
                 // GOOD CODE GOES HERE
-                Msg("Good Code");
+                //Objects and variables
+                var applicationYears = default(int);
+
+                //Assign Customer Properties
+                if (cApplicationIDTextBox.Text == string.Empty)
+                {
+
+                }
             }
         }
 
