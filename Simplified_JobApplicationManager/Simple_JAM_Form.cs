@@ -1,4 +1,6 @@
-using Microsoft.VisualBasic;
+//Author: Levi Liljedahl
+//Date: 04/04/2024
+//Purpose: Allow users to keep track of the jobs they apply for and have access to all the data about an application in one spot.
 
 namespace Simplified_JobApplicationManager
 {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Simplified_JobApplicationManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8419bc17487fb2827cda08cbe7cf73eb0e660f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e359fcd1e61b98f3d6a240249488b46fc181b687")]
 [assembly: System.Reflection.AssemblyProductAttribute("Simplified_JobApplicationManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Simplified_JobApplicationManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
