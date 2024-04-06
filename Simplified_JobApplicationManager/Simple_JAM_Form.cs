@@ -14,8 +14,10 @@ namespace Simplified_JobApplicationManager
             InitializeComponent();
         }
 
+        private JobApplication selectedApplication;
+
         //Class level object - binding list
-        private BindingList<Simplified_JobApplicationManager.JobApplication> jobApplications = new BindingList<Simplified_JobApplicationManager.JobApplication>();
+        private BindingList<Simplified_JobApplicationManager.JobApplication> jobApplicationsList = new BindingList<Simplified_JobApplicationManager.JobApplication>();
 
         //Class level Object Application
         private Simplified_JobApplicationManager.JobApplication jobApplicationObject = new Simplified_JobApplicationManager.JobApplication();
@@ -105,7 +107,7 @@ namespace Simplified_JobApplicationManager
             {
                 // GOOD CODE GOES HERE
                 //Objects and variables
-                var applicationYears = default(int);
+                //var applicationYears = default(int);
 
                 //Assign Customer Properties
                 if (cApplicationIDTextBox.Text == string.Empty)
@@ -134,10 +136,16 @@ namespace Simplified_JobApplicationManager
                 newApplication.LevelOfInterest = eInterestComboBox.Text;
                 newApplication.GoodFit = eGoodFitComboBox.Text;
 
+
+                selectedApplication = newApplication;
+                jobApplicationsList.Add(newApplication);
+                applicationsListBox.SelectedItem = selectedApplication;
+
                 //set selected object and add data to list
-                jobApplicationObject = newApplication;
-                jobApplications.Add(newApplication);
-                applicationsListBox.SelectedItem = jobApplicationObject;
+                //jobApplicationObject = newApplication;
+                //jobApplicationsList.Add(newApplication);
+                //jobApplicationsList.Add(jobApplicationObject);
+                //applicationsListBox.SelectedItem = jobApplicationObject;
 
                 ClearAllTextBoxes();
 
@@ -163,6 +171,11 @@ namespace Simplified_JobApplicationManager
 
         private void applicationsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+            //if (applicationsListBox.SelectedItem != null)
+            //{
+                selectedApplication = (JobApplication)(applicationsListBox.SelectedItem);
+            //}
             DisplayAll();
         }
 
@@ -198,38 +211,47 @@ namespace Simplified_JobApplicationManager
 
         private void Simple_JAM_Form_Load(object sender, EventArgs e)
         {
-            applicationsListBox.DataSource = jobApplications;
+            applicationsListBox.DataSource = jobApplicationsList;
         }
 
         private void DisplayAll()
         {
-            // Populate company info textboxes
-            this.cApplicationIDTextBox.Text = jobApplicationObject.ApplicationID;
-            this.cNameTextBox.Text = jobApplicationObject.CompanyName;
-            this.cLocatedTextBox.Text = jobApplicationObject.CompanyLocated;
+           // Simplified_JobApplicationManager.JobApplication selectedJobApplication = (Simplified_JobApplicationManager.JobApplication)applicationsListBox.SelectedItem;
 
-            // Populate job info textboxes
-            this.jTitleTextBox.Text = jobApplicationObject.JobTitle;
-            this.jLocationTextBox.Text = jobApplicationObject.JobLocation;
-            this.jPayRateTextBox.Text = jobApplicationObject.PayRate;
+            //if (applicationsListBox.SelectedItems.Count >= 0 ) 
+            if (selectedApplication != null)
+            {
+                // Populate company info textboxes
+                this.cApplicationIDTextBox.Text = selectedApplication.ApplicationID;
+                this.cNameTextBox.Text = selectedApplication.CompanyName;
+                this.cLocatedTextBox.Text = selectedApplication.CompanyLocated;
 
-            //Populate application info textboxes
-            this.aAppliedOnTextBox.Text = jobApplicationObject.DateApplied.ToString();
-            this.aLocationTextBox.Text = jobApplicationObject.AppliedLocation;
-            this.aStatusComboBox.Text = jobApplicationObject.Status;
+                // Populate job info textboxes
+                this.jTitleTextBox.Text = selectedApplication.JobTitle;
+                this.jLocationTextBox.Text = selectedApplication.JobLocation;
+                this.jPayRateTextBox.Text = selectedApplication.PayRate;
 
-            //Populate extra information textboxes
-            this.eSourceDocTextBox.Text = jobApplicationObject.SourceDocument;
-            this.eNotesTextBox.Text = jobApplicationObject.Notes;
-            this.eInterestComboBox.Text = jobApplicationObject.LevelOfInterest;
-            this.eGoodFitComboBox.Text = jobApplicationObject.GoodFit;
+                //Populate application info textboxes
+                this.aAppliedOnTextBox.Text = selectedApplication.DateApplied.ToString();
+                this.aLocationTextBox.Text = selectedApplication.AppliedLocation;
+                this.aStatusComboBox.Text = selectedApplication.Status;
 
-            //Calculate and populate days since text box
-            TimeSpan days = new TimeSpan();
-            int daysInt = 0;
-            jobApplicationObject.Calculate_DaysSince(jobApplicationObject.DateApplied, ref days);
-            daysInt = days.Days;
-            this.aDaysSinceTextBox.Text = daysInt.ToString() + " days";
+                //Populate extra information textboxes
+                this.eSourceDocTextBox.Text = selectedApplication.SourceDocument;
+                this.eNotesTextBox.Text = selectedApplication.Notes;
+                this.eInterestComboBox.Text = selectedApplication.LevelOfInterest;
+                this.eGoodFitComboBox.Text = selectedApplication.GoodFit;
+
+                ////Calculate and populate days since text box
+                //TimeSpan days = new TimeSpan();
+                //int daysInt = 0;
+                //selectedApplication.Calculate_DaysSince(selectedApplication.DateApplied, ref days);
+                //daysInt = days.Days;
+                //this.aDaysSinceTextBox.Text = daysInt.ToString() + " days";
+
+
+            }
+
 
         }
 
