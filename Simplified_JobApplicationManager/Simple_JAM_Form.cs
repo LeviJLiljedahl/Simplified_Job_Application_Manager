@@ -233,10 +233,69 @@ namespace Simplified_JobApplicationManager
 
         }
 
+        //private int DaysSince(DateTime date)
+        //{
+        //    TimeSpan days = new TimeSpan();
+        //    int daysInt = 0;
+
+
+
+        //    days = System.DateTime.Now - date;
+
+        //    daysInt = days.Days;
+
+        //    return daysInt;
+        //}
+
         public void DaysSinceColor()
         {
             // Modify the color of the days since box based on length of days since
             //Do the same for status below in StatusColor()
         }
+
+        //private void DaysSinceColor(int daysInt)
+        //{
+        //    // Modify the color of the days since box based on length of days since
+        //    //Do the same for status below in StatusColor()
+
+
+        //    if (daysInt < 7)
+        //    {
+        //        aDaysSinceTextBox.BackColor = Color.MediumSpringGreen;
+        //    }
+        //    else if (daysInt > 7 && daysInt < 14)
+        //    {
+        //        aDaysSinceTextBox.BackColor = Color.Khaki;
+        //    }
+        //    else if (daysInt > 14)
+        //    {
+        //        aDaysSinceTextBox.BackColor = Color.PaleVioletRed;
+        //    }
+        //    else
+        //    {
+        //        aDaysSinceTextBox.BackColor = Color.MediumAquamarine;
+        //    }
+        //}
+
+        //private void StatusColor()
+        //{
+        //    if (aStatusComboBox.Text == "Hired")
+        //    {
+        //        aStatusComboBox.BackColor = Color.MediumSpringGreen;
+        //    }
+        //    else if (aStatusComboBox.Text == "Rejected")
+        //    {
+        //        aStatusComboBox.BackColor = Color.PaleVioletRed;
+        //    }
+        //    else
+        //    {
+        //        aStatusComboBox.BackColor = Color.Khaki;
+        //    }
+        //}
+
+        //private void RefreshDisplay()
+        //{
+        //    DisplayAll();
+        //}
     }
 }

@@ -32,47 +32,47 @@ namespace Simplified_JobApplicationManager
         private string cLevelOfInterest;
         private string cGoodFit;
 
-        public string ApplicationID 
-            {  get {  return cApplicationID; } set {  cApplicationID = value; } }
+        public string ApplicationID
+        { get { return cApplicationID; } set { cApplicationID = value; } }
 
-        public string CompanyName 
-            { get {  return cCompanyName; } set { cCompanyName = value; } }
+        public string CompanyName
+        { get { return cCompanyName; } set { cCompanyName = value; } }
 
-        public string CompanyLocated 
-            { get {  return cCompanyLocated; } set { cCompanyLocated = value; } }
+        public string CompanyLocated
+        { get { return cCompanyLocated; } set { cCompanyLocated = value; } }
 
-        public string JobTitle 
-            { get {  return cJobTitle; } set { cJobTitle = value; } }
+        public string JobTitle
+        { get { return cJobTitle; } set { cJobTitle = value; } }
 
-        public string JobLocation 
-            { get {  return cJobLocation; } set { cJobLocation = value; } }
+        public string JobLocation
+        { get { return cJobLocation; } set { cJobLocation = value; } }
 
-        public string PayRate 
-            { get { return cPayRate; } set { cPayRate = value; } }
+        public string PayRate
+        { get { return cPayRate; } set { cPayRate = value; } }
 
-        public DateTime DateApplied 
-            { get {  return cDateApplied; } set { cDateApplied = value; } }
+        public DateTime DateApplied
+        { get { return cDateApplied; } set { cDateApplied = value; } }
 
         //public DateTime DaysSince 
-         //   { get {  return cDaysSince; } set {  cDaysSince = value; } }
+        //   { get {  return cDaysSince; } set {  cDaysSince = value; } }
 
-        public string AppliedLocation 
-            { get { return cAppliedLocation; } set { cAppliedLocation = value; } }
+        public string AppliedLocation
+        { get { return cAppliedLocation; } set { cAppliedLocation = value; } }
 
-        public string Status 
-            { get { return cStatus; } set { cStatus = value; } }
+        public string Status
+        { get { return cStatus; } set { cStatus = value; } }
 
-        public string SourceDocument 
-            {  get { return cSourceDocument; } set { cSourceDocument = value; } }
+        public string SourceDocument
+        { get { return cSourceDocument; } set { cSourceDocument = value; } }
 
-        public string Notes 
-            {  get { return cNotes; } set { cNotes = value; } }
+        public string Notes
+        { get { return cNotes; } set { cNotes = value; } }
 
-        public string LevelOfInterest 
-            { get { return cLevelOfInterest; } set { cLevelOfInterest = value; } }
+        public string LevelOfInterest
+        { get { return cLevelOfInterest; } set { cLevelOfInterest = value; } }
 
-        public string GoodFit 
-            { get { return cGoodFit; } set { cGoodFit = value; } }
+        public string GoodFit
+        { get { return cGoodFit; } set { cGoodFit = value; } }
 
         //Default Constructor
         public JobApplication()
@@ -91,7 +91,7 @@ namespace Simplified_JobApplicationManager
             cNotes = string.Empty;
             cLevelOfInterest = string.Empty;
             cGoodFit = string.Empty;
-          }
+        }
 
         //Overload Construcor
         public JobApplication(string JobApplicationID)
