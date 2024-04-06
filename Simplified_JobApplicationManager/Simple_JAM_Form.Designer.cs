@@ -160,7 +160,11 @@
             // 
             // cApplicationIDTextBox
             // 
+<<<<<<< HEAD
             cApplicationIDTextBox.BackColor = Color.MediumAquamarine;
+=======
+            cApplicationIDTextBox.BackColor = Color.Aquamarine;
+>>>>>>> dd9104358af3b2d7feb3b63b5f826e815ba2cb68
             cApplicationIDTextBox.Enabled = false;
             cApplicationIDTextBox.Location = new Point(155, 25);
             cApplicationIDTextBox.Name = "cApplicationIDTextBox";
