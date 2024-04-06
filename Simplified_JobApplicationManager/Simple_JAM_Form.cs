@@ -14,13 +14,11 @@ namespace Simplified_JobApplicationManager
             InitializeComponent();
         }
 
-        private JobApplication selectedApplication;
-
         //Class level object - binding list
         private BindingList<Simplified_JobApplicationManager.JobApplication> jobApplicationsList = new BindingList<Simplified_JobApplicationManager.JobApplication>();
 
         //Class level Object Application
-        private Simplified_JobApplicationManager.JobApplication jobApplicationObject = new Simplified_JobApplicationManager.JobApplication();
+        private Simplified_JobApplicationManager.JobApplication selectedApplication = new Simplified_JobApplicationManager.JobApplication();
 
         int applicationLastNumber = 0;
 
@@ -136,19 +134,12 @@ namespace Simplified_JobApplicationManager
                 newApplication.LevelOfInterest = eInterestComboBox.Text;
                 newApplication.GoodFit = eGoodFitComboBox.Text;
 
-
+                //set selected object and add data to list
                 selectedApplication = newApplication;
                 jobApplicationsList.Add(newApplication);
                 applicationsListBox.SelectedItem = selectedApplication;
 
-                //set selected object and add data to list
-                //jobApplicationObject = newApplication;
-                //jobApplicationsList.Add(newApplication);
-                //jobApplicationsList.Add(jobApplicationObject);
-                //applicationsListBox.SelectedItem = jobApplicationObject;
-
                 ClearAllTextBoxes();
-
 
             }
         }
@@ -171,11 +162,10 @@ namespace Simplified_JobApplicationManager
 
         private void applicationsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            //if (applicationsListBox.SelectedItem != null)
-            //{
+            if (applicationsListBox.SelectedItem != null)
+            {
                 selectedApplication = (JobApplication)(applicationsListBox.SelectedItem);
-            //}
+            }
             DisplayAll();
         }
 
@@ -202,6 +192,11 @@ namespace Simplified_JobApplicationManager
             this.eNotesTextBox.Text = string.Empty;
             this.eInterestComboBox.Text = string.Empty;
             this.eGoodFitComboBox.Text = string.Empty;
+
+            //reset colors
+            aDaysSinceTextBox.BackColor = Color.MediumAquamarine;
+            aStatusComboBox.BackColor = Color.MintCream;
+
         }
 
         public void Msg(string msg)
@@ -216,9 +211,7 @@ namespace Simplified_JobApplicationManager
 
         private void DisplayAll()
         {
-           // Simplified_JobApplicationManager.JobApplication selectedJobApplication = (Simplified_JobApplicationManager.JobApplication)applicationsListBox.SelectedItem;
 
-            //if (applicationsListBox.SelectedItems.Count >= 0 ) 
             if (selectedApplication != null)
             {
                 // Populate company info textboxes
@@ -242,82 +235,54 @@ namespace Simplified_JobApplicationManager
                 this.eInterestComboBox.Text = selectedApplication.LevelOfInterest;
                 this.eGoodFitComboBox.Text = selectedApplication.GoodFit;
 
-                ////Calculate and populate days since text box
-                //TimeSpan days = new TimeSpan();
-                //int daysInt = 0;
-                //selectedApplication.Calculate_DaysSince(selectedApplication.DateApplied, ref days);
-                //daysInt = days.Days;
-                //this.aDaysSinceTextBox.Text = daysInt.ToString() + " days";
+                //Calculate and populate days since text box
+                int returnDays = 0;
+                selectedApplication.Calculate_DaysSince(selectedApplication.DateApplied, ref returnDays);
+                this.aDaysSinceTextBox.Text = returnDays.ToString() + " days";
 
+                //Modify Colors based on values
+                DaysSinceColor(returnDays);
+                StatusColor();
 
             }
-
-
         }
 
-        //private int DaysSince(DateTime date)
-        //{
-        //    TimeSpan days = new TimeSpan();
-        //    int daysInt = 0;
-
-
-
-        //    days = System.DateTime.Now - date;
-
-        //    daysInt = days.Days;
-
-        //    return daysInt;
-        //}
-
-        public void DaysSinceColor()
+        private void DaysSinceColor(int daysInt)
         {
             // Modify the color of the days since box based on length of days since
             //Do the same for status below in StatusColor()
+            if (daysInt < 7)
+            {
+                aDaysSinceTextBox.BackColor = Color.MediumSpringGreen;
+            }
+            else if (daysInt > 7 && daysInt < 14)
+            {
+                aDaysSinceTextBox.BackColor = Color.Khaki;
+            }
+            else if (daysInt > 14)
+            {
+                aDaysSinceTextBox.BackColor = Color.PaleVioletRed;
+            }
+            else
+            {
+                aDaysSinceTextBox.BackColor = Color.MediumAquamarine;
+            }
         }
 
-        //private void DaysSinceColor(int daysInt)
-        //{
-        //    // Modify the color of the days since box based on length of days since
-        //    //Do the same for status below in StatusColor()
-
-
-        //    if (daysInt < 7)
-        //    {
-        //        aDaysSinceTextBox.BackColor = Color.MediumSpringGreen;
-        //    }
-        //    else if (daysInt > 7 && daysInt < 14)
-        //    {
-        //        aDaysSinceTextBox.BackColor = Color.Khaki;
-        //    }
-        //    else if (daysInt > 14)
-        //    {
-        //        aDaysSinceTextBox.BackColor = Color.PaleVioletRed;
-        //    }
-        //    else
-        //    {
-        //        aDaysSinceTextBox.BackColor = Color.MediumAquamarine;
-        //    }
-        //}
-
-        //private void StatusColor()
-        //{
-        //    if (aStatusComboBox.Text == "Hired")
-        //    {
-        //        aStatusComboBox.BackColor = Color.MediumSpringGreen;
-        //    }
-        //    else if (aStatusComboBox.Text == "Rejected")
-        //    {
-        //        aStatusComboBox.BackColor = Color.PaleVioletRed;
-        //    }
-        //    else
-        //    {
-        //        aStatusComboBox.BackColor = Color.Khaki;
-        //    }
-        //}
-
-        //private void RefreshDisplay()
-        //{
-        //    DisplayAll();
-        //}
+        private void StatusColor()
+        {
+            if (aStatusComboBox.Text == "Hired")
+            {
+                aStatusComboBox.BackColor = Color.MediumSpringGreen;
+            }
+            else if (aStatusComboBox.Text == "Rejected")
+            {
+                aStatusComboBox.BackColor = Color.PaleVioletRed;
+            }
+            else
+            {
+                aStatusComboBox.BackColor = Color.Khaki;
+            }
+        }
     }
 }
