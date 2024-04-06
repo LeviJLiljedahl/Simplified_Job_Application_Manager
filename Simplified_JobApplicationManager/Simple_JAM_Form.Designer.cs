@@ -472,6 +472,7 @@
             Margin = new Padding(4);
             Name = "Simple_JAM_Form";
             Text = "Job Application Manager - Simplified";
+            Load += Simple_JAM_Form_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);

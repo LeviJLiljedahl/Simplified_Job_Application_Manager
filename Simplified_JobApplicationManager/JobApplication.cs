@@ -113,9 +113,9 @@ namespace Simplified_JobApplicationManager
         }
 
         //Methods
-        public void Calculate_DaysSince(DateTime dateApplied, ref int days)
+        public void Calculate_DaysSince(DateTime dateApplied, ref TimeSpan days)
         {
-            days = (int)System.DateTime.Now.Day - dateApplied.Day;
+            days = System.DateTime.Now - dateApplied;
         }
 
 

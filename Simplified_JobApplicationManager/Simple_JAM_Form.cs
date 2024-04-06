@@ -2,6 +2,7 @@
 //Date: 04/04/2024
 //Purpose: Allow users to keep track of the jobs they apply for and have access to all the data about an application in one spot.
 
+using System;
 using System.ComponentModel;
 
 namespace Simplified_JobApplicationManager
@@ -25,6 +26,8 @@ namespace Simplified_JobApplicationManager
         {
             //Declare Variables
             DateTime valueDAT;
+
+            JobApplication newApplication = new JobApplication();
 
             if ((cNameTextBox.Text ?? "") == (string.Empty ?? ""))
             {
@@ -107,8 +110,38 @@ namespace Simplified_JobApplicationManager
                 //Assign Customer Properties
                 if (cApplicationIDTextBox.Text == string.Empty)
                 {
-
+                    //If new record increment application Last number
+                    applicationLastNumber++;
+                    newApplication.ApplicationID = applicationLastNumber.ToString();
                 }
+                else
+                {
+                    newApplication.ApplicationID = cApplicationIDTextBox.Text;
+                }
+
+                // Set user entered data to objects
+
+                newApplication.CompanyName = cNameTextBox.Text;
+                newApplication.CompanyLocated = cLocatedTextBox.Text;
+                newApplication.JobTitle = jTitleTextBox.Text;
+                newApplication.JobLocation = jLocationTextBox.Text;
+                newApplication.PayRate = jPayRateTextBox.Text;
+                newApplication.DateApplied = valueDAT;
+                newApplication.AppliedLocation = aLocationTextBox.Text;
+                newApplication.Status = aStatusComboBox.Text;
+                newApplication.SourceDocument = eSourceDocTextBox.Text;
+                newApplication.Notes = eNotesTextBox.Text;
+                newApplication.LevelOfInterest = eInterestComboBox.Text;
+                newApplication.GoodFit = eGoodFitComboBox.Text;
+
+                //set selected object and add data to list
+                jobApplicationObject = newApplication;
+                jobApplications.Add(newApplication);
+                applicationsListBox.SelectedItem = jobApplicationObject;
+
+                ClearAllTextBoxes();
+
+
             }
         }
 
@@ -130,12 +163,13 @@ namespace Simplified_JobApplicationManager
 
         private void applicationsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            DisplayAll();
         }
 
         private void ClearAllTextBoxes()
         {
             // Clear company info textboxes
+            this.cApplicationIDTextBox.Text = string.Empty;
             this.cNameTextBox.Text = string.Empty;
             this.cLocatedTextBox.Text = string.Empty;
 
@@ -160,6 +194,49 @@ namespace Simplified_JobApplicationManager
         public void Msg(string msg)
         {
             MessageBox.Show(msg, "Job Application Manager", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+        }
+
+        private void Simple_JAM_Form_Load(object sender, EventArgs e)
+        {
+            applicationsListBox.DataSource = jobApplications;
+        }
+
+        private void DisplayAll()
+        {
+            // Populate company info textboxes
+            this.cApplicationIDTextBox.Text = jobApplicationObject.ApplicationID;
+            this.cNameTextBox.Text = jobApplicationObject.CompanyName;
+            this.cLocatedTextBox.Text = jobApplicationObject.CompanyLocated;
+
+            // Populate job info textboxes
+            this.jTitleTextBox.Text = jobApplicationObject.JobTitle;
+            this.jLocationTextBox.Text = jobApplicationObject.JobLocation;
+            this.jPayRateTextBox.Text = jobApplicationObject.PayRate;
+
+            //Populate application info textboxes
+            this.aAppliedOnTextBox.Text = jobApplicationObject.DateApplied.ToString();
+            this.aLocationTextBox.Text = jobApplicationObject.AppliedLocation;
+            this.aStatusComboBox.Text = jobApplicationObject.Status;
+
+            //Populate extra information textboxes
+            this.eSourceDocTextBox.Text = jobApplicationObject.SourceDocument;
+            this.eNotesTextBox.Text = jobApplicationObject.Notes;
+            this.eInterestComboBox.Text = jobApplicationObject.LevelOfInterest;
+            this.eGoodFitComboBox.Text = jobApplicationObject.GoodFit;
+
+            //Calculate and populate days since text box
+            TimeSpan days = new TimeSpan();
+            int daysInt = 0;
+            jobApplicationObject.Calculate_DaysSince(jobApplicationObject.DateApplied, ref days);
+            daysInt = days.Days;
+            this.aDaysSinceTextBox.Text = daysInt.ToString() + " days";
+
+        }
+
+        public void DaysSinceColor()
+        {
+            // Modify the color of the days since box based on length of days since
+            //Do the same for status below in StatusColor()
         }
     }
 }
