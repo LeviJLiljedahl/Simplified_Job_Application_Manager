@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj",
+      "projectUniqueName": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Simplified_Job_Application_Manager\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj",
       "projectName": "Simplified_JobApplicationManager",
-      "projectPath": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj",
+      "projectPath": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Simplified_Job_Application_Manager\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj",
       "packagesPath": "C:\\Users\\levij\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\obj\\",
+      "outputPath": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Simplified_Job_Application_Manager\\Simplified_JobApplicationManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

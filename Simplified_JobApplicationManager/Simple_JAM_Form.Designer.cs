@@ -160,7 +160,7 @@
             // 
             // cApplicationIDTextBox
             // 
-            cApplicationIDTextBox.BackColor = SystemColors.InactiveCaption;
+            cApplicationIDTextBox.BackColor = Color.Aquamarine;
             cApplicationIDTextBox.Enabled = false;
             cApplicationIDTextBox.Location = new Point(155, 25);
             cApplicationIDTextBox.Name = "cApplicationIDTextBox";
@@ -284,7 +284,7 @@
             // 
             // aDaysSinceTextBox
             // 
-            aDaysSinceTextBox.BackColor = SystemColors.InactiveCaption;
+            aDaysSinceTextBox.BackColor = Color.MediumAquamarine;
             aDaysSinceTextBox.Enabled = false;
             aDaysSinceTextBox.Font = new Font("Garamond", 12F);
             aDaysSinceTextBox.Location = new Point(159, 63);
