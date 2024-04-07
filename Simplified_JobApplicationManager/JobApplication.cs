@@ -23,7 +23,7 @@ namespace Simplified_JobApplicationManager
         private string cPayRate;
 
         private DateTime cDateApplied;
-        //private DateTime cDaysSince;
+        private int cDaysSince;
         private string cAppliedLocation;
         private string cStatus;
 
@@ -53,8 +53,8 @@ namespace Simplified_JobApplicationManager
         public DateTime DateApplied
         { get { return cDateApplied; } set { cDateApplied = value; } }
 
-        //public DateTime DaysSince 
-        //   { get {  return cDaysSince; } set {  cDaysSince = value; } }
+        public int DaysSince 
+           { get {  return cDaysSince; } set {  cDaysSince = value; } }
 
         public string AppliedLocation
         { get { return cAppliedLocation; } set { cAppliedLocation = value; } }
@@ -84,7 +84,7 @@ namespace Simplified_JobApplicationManager
             cJobLocation = string.Empty;
             cPayRate = string.Empty;
             cDateApplied = new DateTime(1901, 01, 01);
-            //cDaysSince = new DateTime(1901, 01, 01);
+            cDaysSince = 0;
             cAppliedLocation = string.Empty;
             cStatus = string.Empty;
             cSourceDocument = string.Empty;
@@ -103,7 +103,7 @@ namespace Simplified_JobApplicationManager
             cJobLocation = string.Empty;
             cPayRate = string.Empty;
             cDateApplied = new DateTime(1901, 01, 01);
-            //cDaysSince = new DateTime(1901, 01, 01);
+            cDaysSince = 0;
             cAppliedLocation = string.Empty;
             cStatus = string.Empty;
             cSourceDocument = string.Empty;
@@ -118,12 +118,10 @@ namespace Simplified_JobApplicationManager
             //    //Calculate and populate days since text box
                 TimeSpan days = new TimeSpan();
                 int daysInt = 0;
-            //    selectedApplication.Calculate_DaysSince(selectedApplication.DateApplied, ref days);
                 days = System.DateTime.Now - dateApplied;
                 daysInt = days.Days;
                 returnDays = daysInt;
         }
-
 
         // Override to string for listbox
         public override string ToString()

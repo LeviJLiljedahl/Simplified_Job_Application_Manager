@@ -134,6 +134,10 @@ namespace Simplified_JobApplicationManager
                 newApplication.LevelOfInterest = eInterestComboBox.Text;
                 newApplication.GoodFit = eGoodFitComboBox.Text;
 
+                int returnDays = 0;
+                newApplication.Calculate_DaysSince(newApplication.DateApplied, ref returnDays);
+                newApplication.DaysSince = returnDays;
+
                 //set selected object and add data to list
                 selectedApplication = newApplication;
                 jobApplicationsList.Add(newApplication);
@@ -236,12 +240,12 @@ namespace Simplified_JobApplicationManager
                 this.eGoodFitComboBox.Text = selectedApplication.GoodFit;
 
                 //Calculate and populate days since text box
-                int returnDays = 0;
-                selectedApplication.Calculate_DaysSince(selectedApplication.DateApplied, ref returnDays);
-                this.aDaysSinceTextBox.Text = returnDays.ToString() + " days";
+                //int returnDays = 0;
+                //selectedApplication.Calculate_DaysSince(selectedApplication.DateApplied, ref returnDays);
+                this.aDaysSinceTextBox.Text = selectedApplication.DaysSince + " days";
 
                 //Modify Colors based on values
-                DaysSinceColor(returnDays);
+                DaysSinceColor(selectedApplication.DaysSince);
                 StatusColor();
 
             }
