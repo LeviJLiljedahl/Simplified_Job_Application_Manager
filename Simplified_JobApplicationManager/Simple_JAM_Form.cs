@@ -4,6 +4,8 @@
 
 using System;
 using System.ComponentModel;
+using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace Simplified_JobApplicationManager
 {
@@ -295,6 +297,29 @@ namespace Simplified_JobApplicationManager
             {
                 aStatusComboBox.BackColor = Color.Khaki;
             }
+        }
+
+        private SqlConnection OpenDBConnection()
+        {
+            //This gives the full path into the bin/debug folder.
+            string path = Application.StartupPath;
+            int pathLength = path.Length;
+
+            //This strips off the bin/debug folder to point to the project folder
+            path = path.Substring(0, pathLength - 25);
+
+            //Create a connection string
+            string connection = @"Server=(LocalDB)\MSSQLLOcalDB;Integrated Security=true;AttachDbFileName=" + path + "JobApplications.mdf";
+
+            //Create a Connection Object to the database 
+            var dbConnection = new System.Data.SqlClient.SqlConnection(connection);
+
+            //Open Database
+            dbConnection.Open();
+
+
+
+            return DbConnection;
         }
 
         private void InsertApplication()
