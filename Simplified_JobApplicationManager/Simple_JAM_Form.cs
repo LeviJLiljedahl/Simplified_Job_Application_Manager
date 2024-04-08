@@ -105,6 +105,7 @@ namespace Simplified_JobApplicationManager
             {
                 // GOOD/Validated CODE GOES HERE
                 //Objects and variables
+                int returnDays = 0;
 
                 //Assign Customer Properties
                 if (cApplicationIDTextBox.Text == string.Empty)
@@ -119,7 +120,6 @@ namespace Simplified_JobApplicationManager
                 }
 
                 // Set user entered data to objects
-
                 newApplication.CompanyName = cNameTextBox.Text;
                 newApplication.CompanyLocated = cLocatedTextBox.Text;
                 newApplication.JobTitle = jTitleTextBox.Text;
@@ -133,14 +133,17 @@ namespace Simplified_JobApplicationManager
                 newApplication.LevelOfInterest = eInterestComboBox.Text;
                 newApplication.GoodFit = eGoodFitComboBox.Text;
 
-                int returnDays = 0;
+                // Set calculated date to Days since in object
                 newApplication.Calculate_DaysSince(newApplication.DateApplied, ref returnDays);
                 newApplication.DaysSince = returnDays;
+
 
                 //set selected object and add data to list
                 selectedApplication = newApplication;
                 jobApplicationsList.Add(newApplication);
                 applicationsListBox.SelectedItem = selectedApplication;
+
+                InsertApplication();
 
                 ClearAllTextBoxes();
 
@@ -155,12 +158,17 @@ namespace Simplified_JobApplicationManager
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-
+            UpdateApplication();
+            jobApplicationsList.Clear();
+            ReloadApplications();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            DeleteApplication();
+            jobApplicationsList.Remove(selectedApplication);
+            jobApplicationsList.Clear();
+            ReloadApplications();
         }
 
         private void applicationsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -287,6 +295,26 @@ namespace Simplified_JobApplicationManager
             {
                 aStatusComboBox.BackColor = Color.Khaki;
             }
+        }
+
+        private void InsertApplication()
+        {
+
+        }
+
+        private void ReloadApplications()
+        {
+
+        }
+
+        private void DeleteApplication()
+        {
+
+        }
+
+        private void UpdateApplication()
+        {
+
         }
     }
 }
