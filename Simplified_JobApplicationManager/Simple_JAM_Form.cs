@@ -317,9 +317,59 @@ namespace Simplified_JobApplicationManager
             //Open Database
             dbConnection.Open();
 
+            return dbConnection;
 
+        }
+        private void ReloadApplications()
+        {
+            //Clear Listbox
+            applicationsListBox.ClearSelected();
 
-            return DbConnection;
+            //Open Database
+            var connection = OpenDBConnection();
+
+            //Create a command object
+            var selectCommand = new SqlCommand("SELECT * FROM JobApplication_Tbl;", connection);
+
+            //Execute Command into a DataReader
+            var applicationReader = selectCommand.ExecuteReader();
+
+            if (applicationReader.HasRows)
+            {
+                while (applicationReader.Read())
+                {
+                    var storedJobApplicationObject = new Simplified_JobApplicationManager.JobApplication(applicationReader["Application_ID"].ToString());
+
+                    storedJobApplicationObject.CompanyName = applicationReader["Company_Name"].ToString();
+                    storedJobApplicationObject.CompanyLocated = applicationReader["Company_Located"].ToString();
+                    storedJobApplicationObject.JobTitle = applicationReader["Job_Title"].ToString();
+                    storedJobApplicationObject.JobLocation = applicationReader["Job_Location"].ToString();
+                    storedJobApplicationObject.PayRate = applicationReader["Pay_Rate"].ToString();
+                    storedJobApplicationObject.DateApplied = DateTime.Parse(applicationReader["Date_Applied"].ToString());
+                    storedJobApplicationObject.AppliedLocation = applicationReader["Applied_Location"].ToString();
+                    storedJobApplicationObject.Status = applicationReader["Status"].ToString();
+                    storedJobApplicationObject.SourceDocument = applicationReader["Source_Document"].ToString();
+                    storedJobApplicationObject.Notes = applicationReader["Notes"].ToString();
+                    storedJobApplicationObject.LevelOfInterest = applicationReader["Level_Of_Interest"].ToString();
+                    storedJobApplicationObject.GoodFit = applicationReader["Good_Fit"].ToString();
+                    storedJobApplicationObject.DaysSince = int.Parse(applicationReader["Days_Since"].ToString());
+
+                    //Update applicationLastNumber
+                    if (int.Parse(storedJobApplicationObject.ApplicationID) > applicationLastNumber)
+                    {
+                        applicationLastNumber = int.Parse(storedJobApplicationObject.ApplicationID);
+                    }
+
+                    MessageBox.Show(applicationLastNumber.ToString());
+
+                    jobApplicationsList.Add(storedJobApplicationObject);
+
+                }
+            }
+
+            //close DB Connection and dispose
+            connection.Close();
+            connection.Dispose();
         }
 
         private void InsertApplication()
@@ -327,10 +377,6 @@ namespace Simplified_JobApplicationManager
 
         }
 
-        private void ReloadApplications()
-        {
-
-        }
 
         private void DeleteApplication()
         {
