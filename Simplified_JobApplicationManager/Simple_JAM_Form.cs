@@ -103,9 +103,8 @@ namespace Simplified_JobApplicationManager
             }
             else
             {
-                // GOOD CODE GOES HERE
+                // GOOD/Validated CODE GOES HERE
                 //Objects and variables
-                //var applicationYears = default(int);
 
                 //Assign Customer Properties
                 if (cApplicationIDTextBox.Text == string.Empty)
@@ -240,8 +239,6 @@ namespace Simplified_JobApplicationManager
                 this.eGoodFitComboBox.Text = selectedApplication.GoodFit;
 
                 //Calculate and populate days since text box
-                //int returnDays = 0;
-                //selectedApplication.Calculate_DaysSince(selectedApplication.DateApplied, ref returnDays);
                 this.aDaysSinceTextBox.Text = selectedApplication.DaysSince + " days";
 
                 //Modify Colors based on values
@@ -254,7 +251,7 @@ namespace Simplified_JobApplicationManager
         private void DaysSinceColor(int daysInt)
         {
             // Modify the color of the days since box based on length of days since
-            //Do the same for status below in StatusColor()
+
             if (daysInt < 7)
             {
                 aDaysSinceTextBox.BackColor = Color.MediumSpringGreen;
@@ -275,6 +272,9 @@ namespace Simplified_JobApplicationManager
 
         private void StatusColor()
         {
+            // Modify the color of the status box based on option selected
+            //Red for rejected, green for hired, the rest are yellow for pending
+
             if (aStatusComboBox.Text == "Hired")
             {
                 aStatusComboBox.BackColor = Color.MediumSpringGreen;
