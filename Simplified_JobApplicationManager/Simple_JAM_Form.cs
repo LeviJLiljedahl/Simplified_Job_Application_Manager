@@ -374,6 +374,47 @@ namespace Simplified_JobApplicationManager
 
         private void InsertApplication()
         {
+            // Open database
+            var connection = OpenDBConnection();
+
+            //Create SQL String
+            string SQL = "INSERT INTO JobApplication_Tbl(Company_Name, Company_Located, Job_Title, Job_Location, " +
+                        "Pay_Rate, Date_Applied, Applied_Location, Status, Source_Document, Notes, Level_Of_Interest, " +
+                        "Good_Fit, Days_Since) values (@CompanyName, @CompanyLocated, @JobTitle, @JobLocation, @PayRate, " +
+                        "@DateApplied, @AppliedLocation, @Status, @SourceDocument, @Notes, @LevelOfInterest, @GoodFit, " +
+                        "@DaysSince);";
+
+            MessageBox.Show(SQL.ToString());
+
+            //Create Command
+            var insertCommand = new SqlCommand(SQL, connection);
+
+            insertCommand.Parameters.AddWithValue("CompanyName", jobApplicationsList.Last().CompanyName);
+            insertCommand.Parameters.AddWithValue("CompanyLocated", jobApplicationsList.Last().CompanyLocated);
+            insertCommand.Parameters.AddWithValue("JobTitle", jobApplicationsList.Last().JobTitle);
+            insertCommand.Parameters.AddWithValue("JobLocation", jobApplicationsList.Last().JobLocation);
+            insertCommand.Parameters.AddWithValue("PayRate", jobApplicationsList.Last().PayRate);
+            insertCommand.Parameters.AddWithValue("DateApplied", jobApplicationsList.Last().DateApplied);
+            insertCommand.Parameters.AddWithValue("AppliedLocation", jobApplicationsList.Last().AppliedLocation);
+            insertCommand.Parameters.AddWithValue("Status", jobApplicationsList.Last().Status);
+            insertCommand.Parameters.AddWithValue("SourceDocument", jobApplicationsList.Last().SourceDocument);
+            insertCommand.Parameters.AddWithValue("Notes", jobApplicationsList.Last().Notes);
+            insertCommand.Parameters.AddWithValue("LevelOfInterest", jobApplicationsList.Last().LevelOfInterest);
+            insertCommand.Parameters.AddWithValue("GoodFit", jobApplicationsList.Last().GoodFit);
+            insertCommand.Parameters.AddWithValue("DaysSince", jobApplicationsList.Last().DaysSince);
+            
+            int intRowsAffected = insertCommand.ExecuteNonQuery();
+
+            if (intRowsAffected == 1)
+            {
+                MessageBox.Show(jobApplicationsList.Last().ApplicationID + " - " + 
+                    jobApplicationsList.Last().JobTitle + " @ " + jobApplicationsList.Last().CompanyName  + 
+                    " was inserted");
+            } 
+            else
+            {
+                MessageBox.Show("The insert failed");
+            }
 
         }
 
