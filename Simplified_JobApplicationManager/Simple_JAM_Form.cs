@@ -171,6 +171,7 @@ namespace Simplified_JobApplicationManager
             jobApplicationsList.Remove(selectedApplication);
             jobApplicationsList.Clear();
             ReloadApplications();
+            ClearAllTextBoxes();
         }
 
         private void applicationsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,6 +180,7 @@ namespace Simplified_JobApplicationManager
             {
                 selectedApplication = (JobApplication)(applicationsListBox.SelectedItem);
             }
+
             DisplayAll();
         }
 
@@ -209,6 +211,9 @@ namespace Simplified_JobApplicationManager
             //reset colors
             aDaysSinceTextBox.BackColor = Color.MediumAquamarine;
             aStatusComboBox.BackColor = Color.MintCream;
+
+            //Refocus cursor
+            cNameTextBox.Focus();
 
         }
 
@@ -428,7 +433,22 @@ namespace Simplified_JobApplicationManager
 
         private void DeleteApplication()
         {
+            //Open Database
+            var dbConnection = OpenDBConnection();
 
+            //Create SQL String
+            string SQL = "DELETE FROM JobApplication_Tbl WHERE Application_ID = '" + selectedApplication.ApplicationID + "';";
+            MessageBox.Show(SQL);
+
+            //Create Command
+            var deleteCommand = new SqlCommand(SQL, dbConnection);
+
+            var intRowsAffected = deleteCommand.ExecuteNonQuery();
+
+            if (intRowsAffected == 1)
+            {
+                MessageBox.Show("Record was deleted.");
+            }
         }
 
         private void UpdateApplication()
