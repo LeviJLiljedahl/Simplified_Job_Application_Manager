@@ -220,6 +220,13 @@ namespace Simplified_JobApplicationManager
         private void Simple_JAM_Form_Load(object sender, EventArgs e)
         {
             applicationsListBox.DataSource = jobApplicationsList;
+
+            //Load Applications from database
+            ReloadApplications();
+
+            //Set cursor to insert record
+            cNameTextBox.Focus();
+
         }
 
         private void DisplayAll()
