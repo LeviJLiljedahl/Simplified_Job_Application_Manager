@@ -474,8 +474,6 @@ namespace Simplified_JobApplicationManager
                         applicationLastNumber = int.Parse(storedJobApplicationObject.ApplicationID);
                     }
 
-                    //MessageBox.Show(applicationLastNumber.ToString());
-
                     jobApplicationsList.Add(storedJobApplicationObject);
 
                 }
@@ -497,8 +495,6 @@ namespace Simplified_JobApplicationManager
                         "Good_Fit, Days_Since) values (@CompanyName, @CompanyLocated, @JobTitle, @JobLocation, @PayRate, " +
                         "@DateApplied, @AppliedLocation, @Status, @SourceDocument, @Notes, @LevelOfInterest, @GoodFit, " +
                         "@DaysSince);";
-
-            //MessageBox.Show(SQL.ToString());
 
             //Create Command
             var insertCommand = new SqlCommand(SQL, connection);
@@ -546,7 +542,6 @@ namespace Simplified_JobApplicationManager
 
                 //Create SQL String
                 string SQL = "DELETE FROM JobApplication_Tbl WHERE Application_ID = '" + selectedApplication.ApplicationID + "';";
-                //MessageBox.Show(SQL);
 
                 //Create Command
                 var deleteCommand = new SqlCommand(SQL, dbConnection);
@@ -568,7 +563,6 @@ namespace Simplified_JobApplicationManager
 
         private void UpdateApplication(int returnDays)
         {
-            ////////////////////// ***************** STILL NEEDS WORK **********************
 
             //Open Database
             var dbConnection = OpenDBConnection();
@@ -582,8 +576,6 @@ namespace Simplified_JobApplicationManager
                          eNotesTextBox.Text + "', Level_Of_Interest = '" + eInterestComboBox.Text + "', Good_Fit = '" +
                          eGoodFitComboBox.Text + "', Days_Since = '" + returnDays + "' WHERE Application_ID = '" +
                          cApplicationIDTextBox.Text + "';";
-
-            //MessageBox.Show(SQL);
 
             //Create Command
             var updateCommand = new SqlCommand(SQL, dbConnection);
