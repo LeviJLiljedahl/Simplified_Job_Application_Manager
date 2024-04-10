@@ -453,7 +453,32 @@ namespace Simplified_JobApplicationManager
 
         private void UpdateApplication()
         {
+            ////////////////////// ***************** STILL NEEDS WORK **********************
 
+            //Open Database
+            var dbConnection = OpenDBConnection();
+
+            //Create SQL String
+            string SQL = "UPDATE JobApplication_Tbl set Company_Name='" + cNameTextBox.Text + "', Company_Located = '" +
+                         cLocatedTextBox.Text + "', Job_Title = '" + jTitleTextBox.Text + "', Job_Location = '" +
+                         jLocationTextBox.Text + "', Pay_Rate = '" + jPayRateTextBox.Text + "', Date_Applied = '" +
+                         aAppliedOnTextBox.Text + "', Applied_Location = '" + aLocationTextBox.Text + "', Status = '" +
+                         aStatusComboBox.Text + "', Source_Document = '" + eSourceDocTextBox.Text + "', Notes = '" +
+                         eNotesTextBox.Text + "', Level_Of_Interest = '" + eInterestComboBox.Text + "', Good_Fit = '" +
+                         eGoodFitComboBox.Text + "', Days_Since = '" + cApplicationIDTextBox.Text + "' WHERE Application_ID = '" +
+                         cApplicationIDTextBox.Text + "';";
+
+            MessageBox.Show(SQL);
+
+            //Create Command
+            var updateCommand = new SqlCommand(SQL, dbConnection);
+
+            int intRowsAffected = updateCommand.ExecuteNonQuery();
+
+            if (intRowsAffected == 1)
+            {
+                MessageBox.Show(selectedApplication.ApplicationID + " was updated.");
+            }
         }
     }
 }
