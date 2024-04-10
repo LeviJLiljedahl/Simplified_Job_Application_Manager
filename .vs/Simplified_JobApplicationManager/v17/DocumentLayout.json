@@ -3,10 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/96896F5BB5A113086710D3F8F56F505D__PROJECTS_SIMPLIFIED_JOBAPPLICATIONMANAGER_SIMPLIFIED_JOBAPPLICATIONMANAGER_JOBAPPLICATIONS.MDF/True/SqlTable/dbo.JobApplication_Tbl.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FFFC930-A453-4B53-91BF-2A465198DBDB}|Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj|c:\\users\\levij\\onedrive - chippewa valley technical college\\desktop\\projects\\simplified_jobapplicationmanager\\simplified_jobapplicationmanager\\simple_jam_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5FFFC930-A453-4B53-91BF-2A465198DBDB}|Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj|C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\simplified_jobapplicationmanager\\simple_jam_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5FFFC930-A453-4B53-91BF-2A465198DBDB}|Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj|solutionrelative:simplified_jobapplicationmanager\\simple_jam_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -18,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{5FFFC930-A453-4B53-91BF-2A465198DBDB}|Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj|solutionrelative:simplified_jobapplicationmanager\\simple_jam_form.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5FFFC930-A453-4B53-91BF-2A465198DBDB}|Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj|C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\simplified_jobapplicationmanager\\simple_jam_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5FFFC930-A453-4B53-91BF-2A465198DBDB}|Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj|c:\\users\\levij\\onedrive - chippewa valley technical college\\desktop\\projects\\simplified_jobapplicationmanager\\simplified_jobapplicationmanager\\simple_jam_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5FFFC930-A453-4B53-91BF-2A465198DBDB}|Simplified_JobApplicationManager\\Simplified_JobApplicationManager.csproj|solutionrelative:simplified_jobapplicationmanager\\simple_jam_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -29,65 +26,55 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "dbo.JobApplication_Tbl [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/96896F5BB5A113086710D3F8F56F505D__PROJECTS_SIMPLIFIED_JOBAPPLICATIONMANAGER_SIMPLIFIED_JOBAPPLICATIONMANAGER_JOBAPPLICATIONS.MDF/True/SqlTable/dbo.JobApplication_Tbl.sql",
-              "ToolTip": "dbo.JobApplication_Tbl [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-04-10T01:03:02.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Simple_JAM_Form.cs [Design]",
               "DocumentMoniker": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\Simple_JAM_Form.cs",
               "RelativeDocumentMoniker": "Simplified_JobApplicationManager\\Simple_JAM_Form.cs",
               "ToolTip": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\Simple_JAM_Form.cs [Design]",
               "RelativeToolTip": "Simplified_JobApplicationManager\\Simple_JAM_Form.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T02:54:07.138Z",
+              "WhenOpened": "2024-04-10T18:06:39.292Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Simple_JAM_Form.Designer.cs",
               "DocumentMoniker": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\Simple_JAM_Form.Designer.cs",
               "RelativeDocumentMoniker": "Simplified_JobApplicationManager\\Simple_JAM_Form.Designer.cs",
               "ToolTip": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\Simple_JAM_Form.Designer.cs",
               "RelativeToolTip": "Simplified_JobApplicationManager\\Simple_JAM_Form.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKIAAAAAAAAA",
+              "ViewState": "AQIAAAIBAAAAAAAAAAAtwBQBAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-06T02:52:34.068Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "JobApplication.cs",
               "DocumentMoniker": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\JobApplication.cs",
               "RelativeDocumentMoniker": "Simplified_JobApplicationManager\\JobApplication.cs",
               "ToolTip": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\JobApplication.cs",
               "RelativeToolTip": "Simplified_JobApplicationManager\\JobApplication.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAASwIAAAAATAAAA",
+              "ViewState": "AQIAACAAAAAAAAAAAAAtwIAAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-04T23:44:43.847Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Simple_JAM_Form.cs",
               "DocumentMoniker": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\Simple_JAM_Form.cs",
               "RelativeDocumentMoniker": "Simplified_JobApplicationManager\\Simple_JAM_Form.cs",
               "ToolTip": "C:\\Users\\levij\\OneDrive - Chippewa Valley Technical College\\Desktop\\Projects\\Simplified_JobApplicationManager\\Simplified_JobApplicationManager\\Simple_JAM_Form.cs",
               "RelativeToolTip": "Simplified_JobApplicationManager\\Simple_JAM_Form.cs",
-              "ViewState": "AQIAAMABAAAAAAAAAAAYwMcBAABcAAAA",
+              "ViewState": "AQIAAA8CAAAAAAAAAAArwDICAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T20:32:24.373Z",
               "EditorCaption": ""

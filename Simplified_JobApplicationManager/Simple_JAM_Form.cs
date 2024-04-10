@@ -160,9 +160,98 @@ namespace Simplified_JobApplicationManager
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            UpdateApplication();
-            jobApplicationsList.Clear();
-            ReloadApplications();
+            //Declare Variables
+            DateTime valueDAT;
+
+            JobApplication newApplication = new JobApplication();
+
+            if ((cNameTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Company Name TextBox can not be blank.");
+                cNameTextBox.Focus();
+                return;
+            }
+            else if ((cLocatedTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Company Located TextBox can not be blank.");
+                cLocatedTextBox.Focus();
+                return;
+            }
+            else if ((jTitleTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Job Title TextBox can not be blank.");
+                jTitleTextBox.Focus();
+                return;
+            }
+            else if ((jLocationTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Job Location TextBox can not be blank.");
+                jLocationTextBox.Focus();
+                return;
+            }
+            else if ((jPayRateTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Pay Rate TextBox can not be blank. If not listed, enter 'Not Listed'.");
+                jPayRateTextBox.Focus();
+                return;
+            }
+            else if (DateTime.TryParse(aAppliedOnTextBox.Text, out valueDAT) == false)
+            {
+                Msg("Date Applied On TextBox can not be blank and must be a valid date (dd/mm/yyyy).");
+                aAppliedOnTextBox.Focus();
+                return;
+            }
+            else if ((aLocationTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Applied Location TextBox can not be blank.");
+                aLocationTextBox.Focus();
+                return;
+            }
+            else if ((aStatusComboBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Application Status ComboBox can not be blank.");
+                aStatusComboBox.Focus();
+                return;
+            }
+            else if ((eSourceDocTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Source Document TextBox can not be blank.");
+                eSourceDocTextBox.Focus();
+                return;
+            }
+            else if ((eNotesTextBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Notes TextBox can not be blank. If you have no notes at this time enter 'None'.");
+                eNotesTextBox.Focus();
+                return;
+            }
+            else if ((eInterestComboBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Interest Level ComboBox can not be blank.");
+                eInterestComboBox.Focus();
+                return;
+            }
+            else if ((eGoodFitComboBox.Text ?? "") == (string.Empty ?? ""))
+            {
+                Msg("Good Fit/Chances ComboBox can not be blank.");
+                eGoodFitComboBox.Focus();
+                return;
+            }
+            else
+            {
+
+                // Set calculated date to Days since in object
+                DateTime newDate = DateTime.Parse(this.aAppliedOnTextBox.Text);
+                int returnDays = 0;
+                selectedApplication.Calculate_DaysSince(newDate, ref returnDays);
+                selectedApplication.DaysSince = returnDays;
+
+                UpdateApplication(returnDays);
+                jobApplicationsList.Clear();
+                ReloadApplications();
+                ClearAllTextBoxes();
+            }
+
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -215,6 +304,9 @@ namespace Simplified_JobApplicationManager
             //Refocus cursor
             cNameTextBox.Focus();
 
+            //Make days label invisible
+            this.daysLabel.Visible = false;
+
         }
 
         public void Msg(string msg)
@@ -231,6 +323,9 @@ namespace Simplified_JobApplicationManager
 
             //Set cursor to insert record
             cNameTextBox.Focus();
+
+            //make days label invisible
+            this.daysLabel.Visible = false;
 
         }
 
@@ -261,11 +356,14 @@ namespace Simplified_JobApplicationManager
                 this.eGoodFitComboBox.Text = selectedApplication.GoodFit;
 
                 //Calculate and populate days since text box
-                this.aDaysSinceTextBox.Text = selectedApplication.DaysSince + " days";
+                this.aDaysSinceTextBox.Text = selectedApplication.DaysSince.ToString();
 
                 //Modify Colors based on values
                 DaysSinceColor(selectedApplication.DaysSince);
                 StatusColor();
+
+                //Display days label
+                this.daysLabel.Visible = true;
 
             }
         }
@@ -277,18 +375,22 @@ namespace Simplified_JobApplicationManager
             if (daysInt < 7)
             {
                 aDaysSinceTextBox.BackColor = Color.MediumSpringGreen;
+                daysLabel.BackColor = Color.MediumSpringGreen;
             }
             else if (daysInt > 7 && daysInt < 14)
             {
                 aDaysSinceTextBox.BackColor = Color.Khaki;
+                daysLabel.BackColor = Color.Khaki;
             }
             else if (daysInt > 14)
             {
                 aDaysSinceTextBox.BackColor = Color.PaleVioletRed;
+                daysLabel.BackColor = Color.PaleVioletRed;
             }
             else
             {
                 aDaysSinceTextBox.BackColor = Color.MediumAquamarine;
+                daysLabel.BackColor = Color.MediumSpringGreen;
             }
         }
 
@@ -372,7 +474,7 @@ namespace Simplified_JobApplicationManager
                         applicationLastNumber = int.Parse(storedJobApplicationObject.ApplicationID);
                     }
 
-                    MessageBox.Show(applicationLastNumber.ToString());
+                    //MessageBox.Show(applicationLastNumber.ToString());
 
                     jobApplicationsList.Add(storedJobApplicationObject);
 
@@ -396,7 +498,7 @@ namespace Simplified_JobApplicationManager
                         "@DateApplied, @AppliedLocation, @Status, @SourceDocument, @Notes, @LevelOfInterest, @GoodFit, " +
                         "@DaysSince);";
 
-            MessageBox.Show(SQL.ToString());
+            //MessageBox.Show(SQL.ToString());
 
             //Create Command
             var insertCommand = new SqlCommand(SQL, connection);
@@ -414,15 +516,15 @@ namespace Simplified_JobApplicationManager
             insertCommand.Parameters.AddWithValue("LevelOfInterest", jobApplicationsList.Last().LevelOfInterest);
             insertCommand.Parameters.AddWithValue("GoodFit", jobApplicationsList.Last().GoodFit);
             insertCommand.Parameters.AddWithValue("DaysSince", jobApplicationsList.Last().DaysSince);
-            
+
             int intRowsAffected = insertCommand.ExecuteNonQuery();
 
             if (intRowsAffected == 1)
             {
-                MessageBox.Show(jobApplicationsList.Last().ApplicationID + " - " + 
-                    jobApplicationsList.Last().JobTitle + " @ " + jobApplicationsList.Last().CompanyName  + 
+                MessageBox.Show(jobApplicationsList.Last().ApplicationID + " - " +
+                    jobApplicationsList.Last().JobTitle + " @ " + jobApplicationsList.Last().CompanyName +
                     " was inserted");
-            } 
+            }
             else
             {
                 MessageBox.Show("The insert failed");
@@ -433,25 +535,38 @@ namespace Simplified_JobApplicationManager
 
         private void DeleteApplication()
         {
-            //Open Database
-            var dbConnection = OpenDBConnection();
+            var YesNo = MessageBox.Show("Are you sure you want to delete this record?", "Job Application Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 
-            //Create SQL String
-            string SQL = "DELETE FROM JobApplication_Tbl WHERE Application_ID = '" + selectedApplication.ApplicationID + "';";
-            MessageBox.Show(SQL);
+            MessageBox.Show(YesNo.ToString());
 
-            //Create Command
-            var deleteCommand = new SqlCommand(SQL, dbConnection);
-
-            var intRowsAffected = deleteCommand.ExecuteNonQuery();
-
-            if (intRowsAffected == 1)
+            if (YesNo.ToString() == "Yes")
             {
-                MessageBox.Show("Record was deleted.");
+                //Open Database
+                var dbConnection = OpenDBConnection();
+
+                //Create SQL String
+                string SQL = "DELETE FROM JobApplication_Tbl WHERE Application_ID = '" + selectedApplication.ApplicationID + "';";
+                //MessageBox.Show(SQL);
+
+                //Create Command
+                var deleteCommand = new SqlCommand(SQL, dbConnection);
+
+                var intRowsAffected = deleteCommand.ExecuteNonQuery();
+
+                if (intRowsAffected == 1)
+                {
+                    MessageBox.Show("Record was deleted.");
+                }
+
+            } else
+            {
+                MessageBox.Show("Record was NOT deleted.");
             }
+
+
         }
 
-        private void UpdateApplication()
+        private void UpdateApplication(int returnDays)
         {
             ////////////////////// ***************** STILL NEEDS WORK **********************
 
@@ -465,10 +580,10 @@ namespace Simplified_JobApplicationManager
                          aAppliedOnTextBox.Text + "', Applied_Location = '" + aLocationTextBox.Text + "', Status = '" +
                          aStatusComboBox.Text + "', Source_Document = '" + eSourceDocTextBox.Text + "', Notes = '" +
                          eNotesTextBox.Text + "', Level_Of_Interest = '" + eInterestComboBox.Text + "', Good_Fit = '" +
-                         eGoodFitComboBox.Text + "', Days_Since = '" + cApplicationIDTextBox.Text + "' WHERE Application_ID = '" +
+                         eGoodFitComboBox.Text + "', Days_Since = '" + returnDays + "' WHERE Application_ID = '" +
                          cApplicationIDTextBox.Text + "';";
 
-            MessageBox.Show(SQL);
+            //MessageBox.Show(SQL);
 
             //Create Command
             var updateCommand = new SqlCommand(SQL, dbConnection);
@@ -477,7 +592,7 @@ namespace Simplified_JobApplicationManager
 
             if (intRowsAffected == 1)
             {
-                MessageBox.Show(selectedApplication.ApplicationID + " was updated.");
+                MessageBox.Show("Application #" + selectedApplication.ApplicationID + " was updated.");
             }
         }
     }

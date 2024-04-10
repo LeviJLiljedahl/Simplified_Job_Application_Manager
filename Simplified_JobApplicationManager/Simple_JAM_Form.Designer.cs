@@ -47,6 +47,7 @@
             jTitleTextBox = new TextBox();
             jPayRateLabel = new Label();
             groupBox3 = new GroupBox();
+            daysLabel = new Label();
             aStatusComboBox = new ComboBox();
             aLocationTextBox = new TextBox();
             aDaysSinceTextBox = new TextBox();
@@ -160,9 +161,7 @@
             // 
             // cApplicationIDTextBox
             // 
-
             cApplicationIDTextBox.BackColor = Color.MediumAquamarine;
-
             cApplicationIDTextBox.Enabled = false;
             cApplicationIDTextBox.Location = new Point(155, 25);
             cApplicationIDTextBox.Name = "cApplicationIDTextBox";
@@ -249,6 +248,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(daysLabel);
             groupBox3.Controls.Add(aStatusComboBox);
             groupBox3.Controls.Add(aLocationTextBox);
             groupBox3.Controls.Add(aDaysSinceTextBox);
@@ -263,6 +263,18 @@
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "Application Information:";
+            // 
+            // daysLabel
+            // 
+            daysLabel.AutoSize = true;
+            daysLabel.BackColor = Color.MediumAquamarine;
+            daysLabel.Font = new Font("Garamond", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            daysLabel.ForeColor = Color.FromArgb(64, 64, 64);
+            daysLabel.Location = new Point(204, 66);
+            daysLabel.Name = "daysLabel";
+            daysLabel.Size = new Size(40, 18);
+            daysLabel.TabIndex = 10;
+            daysLabel.Text = "Days";
             // 
             // aStatusComboBox
             // 
@@ -288,7 +300,8 @@
             // 
             aDaysSinceTextBox.BackColor = Color.MediumAquamarine;
             aDaysSinceTextBox.Enabled = false;
-            aDaysSinceTextBox.Font = new Font("Garamond", 12F);
+            aDaysSinceTextBox.Font = new Font("Garamond", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            aDaysSinceTextBox.ForeColor = Color.FromArgb(64, 64, 64);
             aDaysSinceTextBox.Location = new Point(159, 63);
             aDaysSinceTextBox.Name = "aDaysSinceTextBox";
             aDaysSinceTextBox.Size = new Size(279, 25);
@@ -525,5 +538,6 @@
         private ComboBox eInterestComboBox;
         private TextBox cApplicationIDTextBox;
         private Label cApplicationIDLabel;
+        private Label daysLabel;
     }
 }
