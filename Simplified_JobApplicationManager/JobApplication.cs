@@ -32,6 +32,8 @@ namespace Simplified_JobApplicationManager
         private string cLevelOfInterest;
         private string cGoodFit;
 
+        // Getters and Setters for class variables
+
         public string ApplicationID
         { get { return cApplicationID; } set { cApplicationID = value; } }
 

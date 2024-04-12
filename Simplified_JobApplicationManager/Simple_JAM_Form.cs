@@ -434,6 +434,7 @@ namespace Simplified_JobApplicationManager
             return dbConnection;
 
         }
+
         private void ReloadApplications()
         {
             //Clear Listbox
@@ -528,7 +529,6 @@ namespace Simplified_JobApplicationManager
 
         }
 
-
         private void DeleteApplication()
         {
             var YesNo = MessageBox.Show("Are you sure you want to delete this record?", "Job Application Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
@@ -557,8 +557,6 @@ namespace Simplified_JobApplicationManager
             {
                 MessageBox.Show("Record was NOT deleted.");
             }
-
-
         }
 
         private void UpdateApplication(int returnDays)
